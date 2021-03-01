@@ -14,36 +14,53 @@ export default function SignIn({ navigation }) {
     return (
       <View style={styles.container}>
         <Modal
-          //style = {styles.modalPosition} 
           transparent = {false}
           visible = {modalVisible}
           onRequestClose={() => {
-            Alert.alert("Modal has been closed.");
             setModalVisible(!modalVisible);
           }}
         >
-              <Button 
-                title="X"
-                onPress= {() => setModalVisible(!modalVisible)}  
-              />
-              <TextInput
-                style={styles.modalContent}
-                onChangeText = {text=> onChangeText(text)}
-                value ={value}
-              />
+          <View style={styles.container}>
+          <View style={styles.modalPoisition}>
+            <View style={styles.XButtonContainer}>
+                  <Button 
+                    color="red"
+                    title="X"
+                    onPress= {() => setModalVisible(!modalVisible)}  
+                  />
+            </View>
+            <Text style={styles.fonts}>Login</Text>
+            <View style={styles.UserPass} >
+                <Text>Username</Text>
+                <TextInput
+                  style = {styles.textInput}
+                  onChangeText = {text => onChangeText(text)}
+                  placeholder = "Enter Handle" 
+                  //value ={value}
+                />
+                <Text>Password</Text>
+                <TextInput
+                  style = {styles.textInput}
+                  onChangeText = {text => onChangeText(text)} //2 things using the same function?
+                  placeholder = "Enter Password" 
+                  //value ={value}
+                />
+              </View>
+          </View>
+          </View>
         </Modal>
         
           <Text style={styles.fonts}>NarQoBot</Text>
           <Button 
             title="Sign-In"
             onPress={() => setModalVisible(!modalVisible)} //set up sign in stuff here
-
           />
           <Button 
-            title="Modal"
+            title="Drawer"
             onPress={() => navigation.openDrawer()}
           />
           <StatusBar style="auto" />
       </View>
+      
     );
   }
