@@ -21,32 +21,32 @@ export default function SignIn({ navigation }) {
           }}
         >
           <View style={styles.container}>
-          <View style={styles.modalPoisition}>
-            <View style={styles.XButtonContainer}>
-                  <Button 
-                    color="red"
-                    title="X"
-                    onPress= {() => setModalVisible(!modalVisible)}  
-                  />
-            </View>
-            <Text style={styles.fonts}>Login</Text>
-            <View style={styles.UserPass} >
-                <Text>Username</Text>
-                <TextInput
-                  style = {styles.textInput}
-                  onChangeText = {text => onChangeText(text)}
-                  placeholder = "Enter Handle" 
-                  //value ={value}
-                />
-                <Text>Password</Text>
-                <TextInput
-                  style = {styles.textInput}
-                  onChangeText = {text => onChangeText(text)} //2 things using the same function?
-                  placeholder = "Enter Password" 
-                  //value ={value}
-                />
+            <View style={styles.modalPoisition}>
+              <View style={styles.XButtonContainer}>
+                    <Button 
+                      color="red"
+                      title="X"
+                      onPress= {() => setModalVisible(!modalVisible)}  
+                    />
               </View>
-          </View>
+              <Text style={styles.fonts}>Login</Text>
+              <View style={styles.UserPass} >
+                  <Text>Username</Text>
+                  <TextInput
+                    style = {styles.textInput}
+                    onChangeText = {text => onChangeText(text)}
+                    placeholder = "Enter Handle" 
+                    //value ={value}
+                  />
+                  <Text>Password</Text>
+                  <TextInput
+                    style = {styles.textInput}
+                    onChangeText = {text => onChangeText(text)} //2 things using the same function?
+                    placeholder = "Enter Password" 
+                    //value ={value}
+                  />
+                </View>
+            </View>
           </View>
         </Modal>
         
