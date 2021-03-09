@@ -29,6 +29,7 @@ export default StyleSheet.create({
       padding: 2,
       borderColor: 'black',
       borderWidth: 2,
+      alignSelf: 'stretch',
     },
     XButtonContainer:{
       flexDirection: 'row-reverse',

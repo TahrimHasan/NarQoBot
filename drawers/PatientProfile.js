@@ -23,7 +23,7 @@ export default function PatP({ navigation }) {
                   {Name:"Jim", DOB:"0/0/0", MCP:2, Phone:9,Doctor:"Dr. Dave", Dose:7, Drug:"derp", Juice:"apple"}  
   ];
   var patientJSON = {Name:"Jim", DOB:"0/0/0", MCP:2, Phone:9,Doctor:"Dr. Dave", Dose:7, Drug:"derp", Juice:"apple"};
-
+  var newPatientJSON = {};
   //TODO: fix change the views and stuff to the custom component
     return (
       <View  style={styles.ProfilePage} style={ styles.container }>
@@ -83,6 +83,7 @@ export default function PatP({ navigation }) {
             <View>
               <ProfileItemEdit
                 profile={patientJSON}
+                //newProfile={newPatientJSON}
               />
             </View>
             <View>

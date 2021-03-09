@@ -51,7 +51,7 @@ export default  class App extends Component {
 export default  function App() {
   return (
     <NavigationContainer styles>
-      <Drawer.Navigator initialRouteName="Esign Doc">
+      <Drawer.Navigator initialRouteName="Patient Profile">
         <Drawer.Screen name="Patient eSign Doc" component={ESign}/>
         <Drawer.Screen name="Patient Profile" component={PatP}/>
         <Drawer.Screen name="Physician Profile" component={PhyP}/>
