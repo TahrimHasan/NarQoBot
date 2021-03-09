@@ -2,7 +2,10 @@ import React, {useState} from 'react';
 import { View, Text, TextInput, StyleSheet, StatusBar, Button, Alert, Modal} from 'react-native';
 
 
-import styles from '../Styles.js'
+import styles from '../Styles.js';
+
+import ProfileItemEdit from "../components/editProfileItem.js";
+import ProfileItem from "../components/profileItem.js";
 
 export default function PatP({ navigation }) {
   var tempName = "John Doe";
@@ -13,6 +16,15 @@ export default function PatP({ navigation }) {
   const [editVisible, setEditVisible] = useState(false);
   
   const [value, onChangeText] = React.useState('Enter Handle');
+
+  //test vars
+  var pplJSON = [ {Name:"john", DOB:"0/0/0", MCP:2, Phone:9,Doctor:"Dr. Dave", Dose:7, Drug:"derp", Juice:"apple"},
+                  {Name:"bob", DOB:"0/0/0", MCP:2, Phone:9,Doctor:"Dr. Dave", Dose:7, Drug:"derp", Juice:"apple"},
+                  {Name:"Jim", DOB:"0/0/0", MCP:2, Phone:9,Doctor:"Dr. Dave", Dose:7, Drug:"derp", Juice:"apple"}  
+  ];
+  var patientJSON = {Name:"Jim", DOB:"0/0/0", MCP:2, Phone:9,Doctor:"Dr. Dave", Dose:7, Drug:"derp", Juice:"apple"};
+
+  //TODO: fix change the views and stuff to the custom component
     return (
       <View  style={styles.ProfilePage} style={ styles.container }>
         <Text>Patient Profile</Text>
@@ -22,38 +34,38 @@ export default function PatP({ navigation }) {
           placeholder = "Search" 
         />
         <View style={styles.ProfilePage}>
-          <View style={styles.ProfileItemContainer}>
-            <Text>Name:</Text>
-            <Text> {tempName}</Text>
-          </View>
-          <View style={styles.ProfileItemContainer}>
-            <Text>DOB:</Text>
-            <Text> {tempDOB}</Text>
-          </View>
-          <View style={styles.ProfileItemContainer}>
-            <Text>MCP:</Text>
-            <Text> {tempMCP}</Text>
-          </View>
-          <View style={styles.ProfileItemContainer}>
-            <Text>Phone:</Text>
-            <Text> {}</Text>
-          </View>
-          <View style={styles.ProfileItemContainer}>
-            <Text>Doctor:</Text>
-            <Text> {}</Text>
-          </View>
-          <View style={styles.ProfileItemContainer}>
-            <Text>Dose:</Text>
-            <Text> {}</Text>
-          </View>
-          <View style={styles.ProfileItemContainer}>
-            <Text>Drug:</Text>
-            <Text> {}</Text>
-          </View>
-          <View style={styles.ProfileItemContainer}>
-            <Text>Juice:</Text>
-            <Text> {}</Text>
-          </View>
+          <ProfileItem
+            tag="Name: "
+            tagItem={patientJSON.Name}
+          />
+          <ProfileItem
+              tag="DOB: "
+              tagItem={patientJSON.DOB}
+          />
+          <ProfileItem
+              tag="MCP: "
+              tagItem= {patientJSON.MCP}
+          />
+            <ProfileItem
+              tag="Phone: "
+              tagItem= {patientJSON.Phone}
+          />
+            <ProfileItem
+              tag="Doctor: "
+              tagItem= {patientJSON.Doctor}
+          />
+            <ProfileItem
+              tag="Drug: "
+              tagItem= {patientJSON.Drug}
+          />
+          <ProfileItem
+              tag="Dose: "
+              tagItem= {patientJSON.Dose}
+          />
+          <ProfileItem
+              tag="Juice: "
+              tagItem= {patientJSON.Juice}
+          />
         </View>
         <Button
             title = "Edit"
@@ -67,7 +79,12 @@ export default function PatP({ navigation }) {
           }}
         >
           <View style = {styles.container}>
-            {/*TODO: figure out custom components and fill in shit */}
+            
+            <View>
+              <ProfileItemEdit
+                profile={patientJSON}
+              />
+            </View>
             <View>
               {/*TODO make Save button actually save*/}
               <Button
